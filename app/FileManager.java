@@ -1,12 +1,24 @@
 package app;
 
+import java.io.IOException;
+import java.nio.file.*;
+
 public class FileManager {
-    public String readFile(String filePath) {
-        // Логика чтения файла
-        return null;
+    public static String readFile(String filePath) {
+        Path path = Path.of(filePath);
+        try {
+            return Files.readString(path);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void writeFile(String content, String filePath) {
-        // Логика записи файла
+    public static void writeFile(String content, String filePath) {
+        Path path = Path.of(filePath);
+        try {
+            Files.writeString(path, content);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,17 +1,18 @@
 package app;
 
+import java.util.Scanner;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class MainApp {
 
     public static void main(String[] args) {
-        String text = "Привет мой друг! Как твои дела?";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите путь к файлу для шифрования: ");
+        String text = FileManager.readFile(scanner.nextLine());
         String encryptedText = Cipher.encrypt(text, 6);
-        System.out.println(encryptedText);
-        System.out.println(Cipher.decrypt(encryptedText, 6));
-        
+        System.out.print("Введите путь к файлу для записи: ");
+        FileManager.writeFile(encryptedText, scanner.nextLine());
+        System.out.print("Введите путь к файлу для дешифровки: ");
+        FileManager.writeFile(Cipher.decrypt(encryptedText, 6), scanner.nextLine());
     }
 }
