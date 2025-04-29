@@ -8,7 +8,7 @@ import java.util.Set;
 public class BruteForce {
     private static final Set<String> POPULARWORDS = new HashSet<>(List.of(
             FileManager.readFile
-                    ("C:\\UMBRA\\Java\\Projects\\CaesarCipherApp\\resourсes\\10000-russian-words.txt")
+                    ("resourсes\\10000-russian-words.txt")
                     .split("\\s")));
 
     public static String decryptByBruteForce(String encryptedText) {
