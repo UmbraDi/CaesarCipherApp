@@ -37,6 +37,10 @@ public class Cipher {
         return false;
     }
 
+    public static char[] getAlphabet() {
+        return ALPHABET;
+    }
+
     private static int findIndex(char target) {
         int index = 0;
         for (int i = 0; i < ALPHABET.length; i++) {
